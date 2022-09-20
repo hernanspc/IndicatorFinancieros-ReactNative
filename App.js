@@ -3,15 +3,19 @@ import { Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Button as ButtonCore } from "@react-native-material/core";
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />
+      <FontAwesome.Button
+        name="facebook"
+        backgroundColor="#3b5998"
+        onPress={this.loginWithFacebook}
+      >
+        Login with Facebook
+      </FontAwesome.Button>
       <ButtonCore title="Click Me" onPress={() => alert("🎉🎉🎉")} />
     </View>
   );
