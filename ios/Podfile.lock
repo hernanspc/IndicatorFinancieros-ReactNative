@@ -11,6 +11,10 @@ PODS:
     - ReactCommon/turbomodule/core (= 0.69.1)
   - fmt (6.2.1)
   - glog (0.3.5)
+  - lottie-ios (3.4.3)
+  - lottie-react-native (5.1.4):
+    - lottie-ios (~> 3.4.0)
+    - React-Core
   - Permission-LocationAccuracy (3.6.1):
     - RNPermissions
   - Permission-LocationAlways (3.6.1):
@@ -302,8 +306,39 @@ PODS:
     - React-jsi (= 0.69.1)
     - React-logger (= 0.69.1)
     - React-perflogger (= 0.69.1)
+  - RNCAsyncStorage (1.17.10):
+    - React-Core
+  - RNGestureHandler (2.6.1):
+    - React-Core
   - RNPermissions (3.6.1):
     - React-Core
+  - RNReanimated (2.10.0):
+    - DoubleConversion
+    - FBLazyVector
+    - FBReactNativeSpec
+    - glog
+    - RCT-Folly
+    - RCTRequired
+    - RCTTypeSafety
+    - React-callinvoker
+    - React-Core
+    - React-Core/DevSupport
+    - React-Core/RCTWebSocket
+    - React-CoreModules
+    - React-cxxreact
+    - React-jsi
+    - React-jsiexecutor
+    - React-jsinspector
+    - React-RCTActionSheet
+    - React-RCTAnimation
+    - React-RCTBlob
+    - React-RCTImage
+    - React-RCTLinking
+    - React-RCTNetwork
+    - React-RCTSettings
+    - React-RCTText
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNScreens (3.17.0):
     - React-Core
     - React-RCTImage
@@ -317,6 +352,7 @@ DEPENDENCIES:
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - lottie-react-native (from `../node_modules/lottie-react-native`)
   - Permission-LocationAccuracy (from `../node_modules/react-native-permissions/ios/LocationAccuracy`)
   - Permission-LocationAlways (from `../node_modules/react-native-permissions/ios/LocationAlways`)
   - Permission-LocationWhenInUse (from `../node_modules/react-native-permissions/ios/LocationWhenInUse`)
@@ -351,7 +387,10 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNPermissions (from `../node_modules/react-native-permissions`)
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -359,6 +398,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - fmt
+    - lottie-ios
 
 EXTERNAL SOURCES:
   boost:
@@ -371,6 +411,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/React/FBReactNativeSpec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  lottie-react-native:
+    :path: "../node_modules/lottie-react-native"
   Permission-LocationAccuracy:
     :path: "../node_modules/react-native-permissions/ios/LocationAccuracy"
   Permission-LocationAlways:
@@ -435,8 +477,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNGestureHandler:
+    :path: "../node_modules/react-native-gesture-handler"
   RNPermissions:
     :path: "../node_modules/react-native-permissions"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   RNVectorIcons:
@@ -451,6 +499,8 @@ SPEC CHECKSUMS:
   FBReactNativeSpec: 546a637adc797fa436dd51d1c63c580f820de31c
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
+  lottie-ios: 9ae750cdc7820fecbd3c2f0cfc493038208fcdc4
+  lottie-react-native: b702fab740cdb952a8e2354713d3beda63ff97b0
   Permission-LocationAccuracy: 76df17de5c6b8bc2eee34e61ee92cdd7a864c73d
   Permission-LocationAlways: 8d99b025c9f73c696e0cdb367e42525f2e9a26f2
   Permission-LocationWhenInUse: 3ba99e45c852763f730eabecec2870c2382b7bd4
@@ -483,7 +533,10 @@ SPEC CHECKSUMS:
   React-RCTVibration: e8b7dd6635cc95689b5db643b5a3848f1e05b30b
   React-runtimeexecutor: 27f468c5576eaf05ffb7a907528e44c75a3fcbae
   ReactCommon: e30ec17dfb1d4c4f3419eac254350d6abca6d5a2
+  RNCAsyncStorage: 0c357f3156fcb16c8589ede67cc036330b6698ca
+  RNGestureHandler: 28ad20bf02257791f7f137b31beef34b9549f54b
   RNPermissions: dcdb7b99796bbeda6975a6e79ad519c41b251b1c
+  RNReanimated: 7faa787e8d4493fbc95fab2ad331fa7625828cfa
   RNScreens: 0df01424e9e0ed7827200d6ed1087ddd06c493f9
   RNVectorIcons: fcc2f6cb32f5735b586e66d14103a74ce6ad61f8
   Yoga: 7ab6e3ee4ce47d7b789d1cb520163833e515f452
