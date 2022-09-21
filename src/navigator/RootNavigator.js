@@ -3,6 +3,7 @@ import { StatusBar, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import AuthStack from "./AuthStack";
+import Drawer from "./Drawer";
 
 export function RootNavigator() {
     const { userToken } = useSelector(state => state.auth);
@@ -11,7 +12,7 @@ export function RootNavigator() {
         <>
             <StatusBar translucent barStyle="light-content" backgroundColor="transparent" />
             {userToken ?
-                <Text>hola mundo</Text>
+                <Drawer />
                 :
                 <AuthStack />
             }

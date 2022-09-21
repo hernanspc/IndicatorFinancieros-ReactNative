@@ -13,7 +13,7 @@ export const Fab = ({ iconName, onPress, style = {} }) => {
             >
                 <Icon
                     name={iconName}
-                    color="white"
+                    color="#E7E7E7"
                     size={35}
                     style={{ left: 1 }}
                 />
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         zIndex: 9999,
         height: 50,
         width: 50,
-        backgroundColor: 'black',
+        backgroundColor: '#4B4C4C',
         borderRadius: 100,
         justifyContent: 'center',
         alignItems: 'center',

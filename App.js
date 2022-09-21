@@ -21,7 +21,6 @@ const App = () => {
     <Provider store={store}>
       <NavigationContainer>
         <AppState>
-          {/* <Navigator /> */}
           <RootNavigator />
         </AppState>
       </NavigationContainer>
