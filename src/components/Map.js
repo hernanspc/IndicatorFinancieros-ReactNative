@@ -6,7 +6,9 @@ import { Fab } from './Fab';
 
 export const Map = () => {
 
-    const { hasLocation, initialPosition, getCurrentLocation, followUserLocation, userLocation } = useLocation();
+    const { hasLocation, initialPosition,
+        getCurrentLocation, followUserLocation,
+        userLocation, stopFollowUserLocation } = useLocation();
 
     const mapViewRef = useRef();
     const following = useRef(true);
@@ -14,11 +16,14 @@ export const Map = () => {
     useEffect(() => {
         followUserLocation();
         return () => {
-            //cancelar
+            stopFollowUserLocation();
         }
     }, [])
 
     useEffect(() => {
+
+        if (!following.current) return;
+
         const { latitude, longitude } = userLocation;
         mapViewRef.current?.animateCamera({
             center: { latitude, longitude }
@@ -51,6 +56,9 @@ export const Map = () => {
                     longitude: initialPosition.longitude,
                     latitudeDelta: 0.0922,
                     longitudeDelta: 0.0421,
+                }}
+                onTouchStart={() => {
+                    following.current = false
                 }}
             >
                 <Marker
