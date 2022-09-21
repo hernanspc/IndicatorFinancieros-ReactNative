@@ -3,24 +3,28 @@ import React from 'react'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Animated from 'react-native-reanimated';
 
-const Carluis = ({ index }) => {
-    // console.log('index ', index)
+const ListFlag = ({ data, opacity, scale }) => {
+    console.log('log: ', data)
+    const { title } = data;
     return (
-        <View style={{
+        <Animated.View style={{
             marginVertical: 5, display: 'flex',
             flexDirection: 'row', width: "100%", height: 70,
-            // backgroundColor: "#CBCBCB",
             paddingHorizontal: 10,
-            // borderBottomWidth: 1,
-            // borderBottomColor: "#CBCBCB"
+            borderBottomWidth: 1,
+            borderBottomColor: "#CBCBCB",
+            shadowRadius: 10,
+            opacity,
+            transform: [{ scale }]
         }}>
             <View style={{
                 display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
                 // alignItems: 'center',
                 width: "70%", height: "100%",
             }}>
-                <Text style={{ fontSize: 17 }}>{index}</Text>
+                <Text style={{ fontSize: 17 }}>{title}</Text>
                 <Text style={{ paddingBottom: 10, fontSize: 14, color: "#0078fd" }}>description</Text>
             </View>
             <View style={{
@@ -36,10 +40,10 @@ const Carluis = ({ index }) => {
                 {/* <MaterialIcons name="keyboard-arrow-right" size={24} color="black" /> */}
                 <Entypo name="chevron-right" size={24} color="#cacacb" />
             </View>
-        </View>
+        </Animated.View>
     )
 }
 
-export default Carluis
+export default ListFlag
 
 const styles = StyleSheet.create({})
