@@ -4,7 +4,7 @@ import { useLocation } from '../hooks/useLocation';
 import LoadingScreen from '../pages/LoadingScreen';
 import { Fab } from './Fab';
 
-const Map = () => {
+export const Map = () => {
 
     const { hasLocation, initialPosition, getCurrentLocation } = useLocation();
 
@@ -57,5 +57,3 @@ const Map = () => {
         </>
     )
 }
-
-export default Map
