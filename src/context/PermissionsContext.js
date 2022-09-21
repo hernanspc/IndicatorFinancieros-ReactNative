@@ -22,6 +22,7 @@ export const PermissionsProvider = ({ children }) => {
     }, [])
 
     const askLocationPermission = async () => {
+        console.log('askLocationPermission..')
         let permissionStatus;
         if (Platform.OS === 'ios') {
             permissionStatus = await request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE);

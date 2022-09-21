@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Platform, StatusBar, StyleSheet, Text, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import { RFValue } from 'react-native-responsive-fontsize';
@@ -6,6 +6,7 @@ import ViewPager from 'react-native-pager-view';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Lottie from 'lottie-react-native';
 import BlackButton from '../components/BlackButton';
+import { PermissionsContext } from '../context/PermissionsContext';
 
 const onboardingSlide_1 = require('../assets/lotties/onboard/115410-bussines.json');
 const onboardingSlide_2 = require('../assets/lotties/onboard/115088-pessoas-rm-farma.json');
@@ -29,11 +30,14 @@ const data = [
 const OnboardingCarousel = () => {
     const navigation = useNavigation();
     const [selectedPage, setSelectedPage] = useState(0);
+    const { permissions, askLocationPermission } = useContext(PermissionsContext)
+
 
     const handleNav = async () => {
-        console.log('click')
-        // await AsyncStorage.setItem("@firstOnboard", "true");
-        // navigation.navigate("Auth");
+        await askLocationPermission();
+        await AsyncStorage.setItem("@firstOnboard", "true");
+        console.log('add AsyncStorage')
+        navigation.navigate("Auth");
     }
 
 
@@ -92,7 +96,7 @@ const OnboardingCarousel = () => {
                 <View style={styles.circleContainer} >
                     {data.map((_, index) => (
                         <View key={index} style={[styles.circleCarrousel, {
-                            backgroundColor: index === selectedPage ? '#2360B1' : 'white'
+                            backgroundColor: index === selectedPage ? '#54A0FA' : 'white'
                         }]}
                         />
                     ))}
