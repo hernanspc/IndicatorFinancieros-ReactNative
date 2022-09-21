@@ -1,26 +1,24 @@
 import { StyleSheet, Text, View, Image, StatusBar } from 'react-native'
 import React from 'react'
 import { useGetFlags } from '../hooks/useGetFlags.js'
-import { FlatList } from 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
 
-const SPACING = 20;
+const SPACING = 10;
 const AVATAR_SIZE = 70;
 const ITEM_SIZE = AVATAR_SIZE + SPACING * 3;
 
 const Home = () => {
 
     const { simpleData } = useGetFlags();
-    console.log('simpleData', simpleData[0])
     const scrollY = React.useRef(new Animated.Value(0)).current;
 
     return (
         <View style={{ flex: 1, backgroundColor: "#FFF" }}>
-            <Image
+            {/* <Image
                 source={{ uri: 'https://images.pexels.com/photos/13597045/pexels-photo-13597045.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' }}
                 style={StyleSheet.absoluteFill}
                 blurRadius={4}
-            />
+            /> */}
             <Animated.FlatList
                 data={simpleData}
                 onScroll={Animated.event(
