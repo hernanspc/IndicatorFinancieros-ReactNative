@@ -3,7 +3,9 @@ import { StyleSheet, Text, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { Navigator } from './src/navigator/Navigator'
 import { PermissionsProvider } from './src/context/PermissionsContext'
-import Root from './src/navigator/RootNavigator'
+import { Provider } from 'react-redux'
+import { store } from './src/app/store'
+import { RootNavigator } from './src/navigator/RootNavigator'
 
 const AppState = ({ children }) => {
   return (
@@ -16,11 +18,14 @@ const AppState = ({ children }) => {
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <AppState>
-        <Navigator />
-      </AppState>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <AppState>
+          {/* <Navigator /> */}
+          <RootNavigator />
+        </AppState>
+      </NavigationContainer>
+    </Provider>
   )
 }
 

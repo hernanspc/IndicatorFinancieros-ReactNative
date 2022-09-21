@@ -1,39 +1,20 @@
-import * as React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { StatusBar, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { useDispatch, useSelector } from 'react-redux';
+import AuthStack from "./AuthStack";
 
-function Feed() {
+export function RootNavigator() {
+    const { userToken } = useSelector(state => state.auth);
+
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Feed Screen</Text>
-        </View>
-    );
-}
-
-function Article() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Article Screen</Text>
-        </View>
-    );
-}
-
-const Drawer = createDrawerNavigator();
-
-function MyDrawer() {
-    return (
-        <Drawer.Navigator useLegacyImplementation>
-            <Drawer.Screen name="Feed" component={Feed} />
-            <Drawer.Screen name="Article" component={Article} />
-        </Drawer.Navigator>
-    );
-}
-
-export default function Root() {
-    return (
-        <NavigationContainer>
-            <MyDrawer />
-        </NavigationContainer>
+        <>
+            <StatusBar translucent barStyle="light-content" backgroundColor="transparent" />
+            {userToken ?
+                <MyDrawer />
+                :
+                <AuthStack />
+            }
+        </>
     );
 }
