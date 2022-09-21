@@ -34,6 +34,14 @@ const AuthScreen = () => {
                 </View>
             </TouchableOpacity>
 
+            <Text center heavy large >
+                Sensor Touch ID para acceder a {"\n"} su indicadores FInancieros
+            </Text>
+
+            <Text center bold margin="16px 0 0 0" color="#9c9c9f" >
+                Verifique su identidad{"\n"} usando Touch ID
+            </Text>
+
         </SafeAreaView>
     )
 }
