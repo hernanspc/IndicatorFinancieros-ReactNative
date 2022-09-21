@@ -11,7 +11,7 @@ export function RootNavigator() {
         <>
             <StatusBar translucent barStyle="light-content" backgroundColor="transparent" />
             {userToken ?
-                <MyDrawer />
+                <Text>hola mundo</Text>
                 :
                 <AuthStack />
             }
