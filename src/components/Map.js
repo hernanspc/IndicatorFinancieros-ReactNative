@@ -6,16 +6,30 @@ import { Fab } from './Fab';
 
 export const Map = () => {
 
-    const { hasLocation, initialPosition, getCurrentLocation } = useLocation();
+    const { hasLocation, initialPosition, getCurrentLocation, followUserLocation, userLocation } = useLocation();
 
     const mapViewRef = useRef();
     const following = useRef(true);
+
+    useEffect(() => {
+        followUserLocation();
+        return () => {
+            //cancelar
+        }
+    }, [])
+
+    useEffect(() => {
+        const { latitude, longitude } = userLocation;
+        mapViewRef.current?.animateCamera({
+            center: { latitude, longitude }
+        });
+    }, [userLocation])
 
     const centerPosition = async () => {
 
         const { latitude, longitude } = await getCurrentLocation();
 
-        // following.current = true;
+        following.current = true;
 
         mapViewRef.current?.animateCamera({
             center: { latitude, longitude }
