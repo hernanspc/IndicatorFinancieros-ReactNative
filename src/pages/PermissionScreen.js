@@ -18,7 +18,6 @@ const PermissionScreen = () => {
                 onPress={askLocationPermission}
             />
 
-
             <Text>{JSON.stringify(permissions, null, 5)}</Text>
         </View>
     )
