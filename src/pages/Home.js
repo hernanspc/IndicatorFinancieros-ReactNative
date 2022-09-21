@@ -19,6 +19,8 @@ const Home = () => {
             /> */}
             <Animated.FlatList
                 data={simpleData}
+                keyExtractor={item => item.id}
+                contentContainerStyle={{ padding: SPACING, paddingTop: StatusBar.currentHeight || 20 }}
                 onScroll={Animated.event(
                     [{ nativeEvent: { contentOffset: { y: scrollY } } }],
                     { useNativeDriver: true }
@@ -49,14 +51,13 @@ const Home = () => {
                     })
 
                     return (
-                        <ListFlag key={index} data={item} opacity={opacity} scale={scale} />
+                        <ListFlag key={index}
+                            data={item}
+                            opacity={opacity}
+                            scale={scale} />
                     )
                 })}
-                keyExtractor={item => item.id}
-                contentContainerStyle={{
-                    padding: SPACING,
-                    paddingTop: StatusBar.currentHeight || 20
-                }}
+
             />
         </View >
     )
