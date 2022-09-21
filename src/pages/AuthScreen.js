@@ -14,7 +14,6 @@ const AuthScreen = () => {
         <View>
             <Text>AuthScreen</Text>
 
-
         </View>
     )
 }

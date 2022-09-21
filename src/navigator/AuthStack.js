@@ -1,6 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import AuthScreen from '../pages/AuthScreen';
 import OnboardingCarousel from '../pages/OnboardingCarousel';
+import React from 'react';
 
 const Auth = createStackNavigator();
 
