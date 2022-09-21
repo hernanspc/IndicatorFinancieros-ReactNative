@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import { ActivityIndicator, Button } from '@react-native-material/core'
 import { check, PERMISSIONS, request } from 'react-native-permissions'
 import { PermissionsContext } from '../context/PermissionsContext'
+import BlackButton from '../components/BlackButton'
 
 const PermissionScreen = () => {
 
@@ -10,9 +11,9 @@ const PermissionScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Text>PermissionScreen</Text>
+            <Text>Es necesario del uso del GPS para esta app</Text>
 
-            <Button
+            <BlackButton
                 title="Pedir Permiso"
                 onPress={askLocationPermission}
             />
