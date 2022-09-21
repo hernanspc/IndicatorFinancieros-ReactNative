@@ -26,27 +26,7 @@ export const useGetFlags = () => {
             id: "UTMs",
             title: "Unidad Tributaria Mensual",
             name: "utm"
-        }, {
-            id: "Dolares",
-            title: "Dólar",
-            name: "dolar"
-        }, {
-            id: "Euros",
-            title: "Euro",
-            name: "euro"
-        }, {
-            id: "IPCs",
-            title: "Indice de precios al consumidor",
-            name: "ipc"
-        }, {
-            id: "UFs",
-            title: "Unidad de Fomento",
-            name: "uf"
-        }, {
-            id: "UTMs",
-            title: "Unidad Tributaria Mensual",
-            name: "utm"
-        },]
+        }]
 
     const dispatch = useDispatch();
     const getListStaticFlags = async (name, id, title) => {
