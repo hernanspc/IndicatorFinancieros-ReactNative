@@ -1,12 +1,25 @@
 import { SafeAreaView, StyleSheet, Text as TextDefault, View, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { Button } from '@react-native-material/core'
 import Text from '../components/Text';
 import { signIn } from '../features/auth/auth';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
 const AuthScreen = () => {
+    const navigation = useNavigation();
+
+    async function check() {
+        const firstLaunch = await AsyncStorage.getItem("@firstOnboard");
+        if (firstLaunch === null) navigation.navigate("OnboardingCarousel");
+    }
+
+    React.useEffect(() => {
+        check();
+    }, []);
+
     const dispatch = useDispatch();
 
     const handlePress = () => {
