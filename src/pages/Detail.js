@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { formatDate, parseDate, restardias, validarSwitch } from '../utils/functions';
 import { fetchApiEffect } from '../utils/api';
 import { FlatList } from 'react-native-gesture-handler';
+import IndicatorSekeleton from './IndicatorSekeleton';
 
 const Detail = () => {
     const navigation = useNavigation();
@@ -46,7 +47,7 @@ const Detail = () => {
                         <SimpleList data={item} />
                     )
                 }}
-                ListEmptyComponent={<Text>VACIO...</Text>}
+                ListEmptyComponent={<IndicatorSekeleton />}
             />
         </View>
     )
