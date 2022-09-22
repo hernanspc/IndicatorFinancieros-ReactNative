@@ -20,7 +20,7 @@ const GraphScreen = () => {
 
     const { params } = route;
     const { title } = params;
-    const { itemSelected } = useSelector(state => state.flags);
+    const { itemSelected, infoGraph } = useSelector(state => state.flags);
     const { Valor } = itemSelected?.data;
 
     const { dataGraph } = useDataGraph();
@@ -33,6 +33,7 @@ const GraphScreen = () => {
             headerBackTitle: "Indicadores"
         });
     }, [navigation]);
+    console.log('infoGraph ', infoGraph.amount)
 
     return (
         <View>
@@ -41,19 +42,12 @@ const GraphScreen = () => {
 
             <View style={{ marginTop: 32, marginBottom: 32, }}>
                 {dataGraph ?
-
-
                     <LineChart
                         data={{
                             labels: dataGraph?.labels,
                             datasets: [
                                 {
-                                    data: [
-                                        Math.random() * 10,
-                                        Math.random() * 10,
-                                    ]
-                                    // data: amount
-                                    // data: ["34013.91", "34108.71", "34122.28", "34135.85", "34149.42"]
+                                    data: infoGraph.amount
                                 }
                             ]
                         }}

@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     data: [],
-    itemSelected: []
+    itemSelected: [],
+    infoGraph: []
 };
 
 const authSlice = createSlice({
@@ -15,9 +16,12 @@ const authSlice = createSlice({
         setItemSelected: (state, action) => {
             state.itemSelected = action.payload;
         },
+        setArrGraph: (state, action) => {
+            state.infoGraph = action.payload;
+        }
     },
 });
 
-export const { setDataFlag, setItemSelected } =
+export const { setDataFlag, setItemSelected, setArrGraph } =
     authSlice.actions;
 export default authSlice.reducer;

@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { BASE_URL, APY_KEY } from "@env"
 import { formatUSD, selectedMoths } from './functions';
+import { setDataGraph } from '../features/flags/flags';
 
 export const fetchDataGraph = async ({ name, id }) => {
     const typeOfBussines = ['dolar', 'euro', 'uf'];
