@@ -34,7 +34,6 @@ export const useGetFlags = () => {
         })
         setSimpleData(allRealPosts)
         dispatch(setDataFlag(allRealPosts));
-        // console.log('allPosts ', allPosts)
     }
 
     useEffect(() => {

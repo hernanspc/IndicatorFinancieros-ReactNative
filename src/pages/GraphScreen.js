@@ -23,7 +23,7 @@ const GraphScreen = () => {
     const { itemSelected } = useSelector(state => state.flags);
     const { Valor } = itemSelected?.data;
 
-    const { getGraphInfo, infoData } = useDataGraph();
+    const { dataGraph } = useDataGraph();
 
     useEffect(() => {
         navigation.setOptions({
@@ -33,10 +33,6 @@ const GraphScreen = () => {
         });
     }, [navigation]);
 
-    useEffect(() => {
-        getGraphInfo()
-    }, [])
-
     return (
         <View>
             <Text heavy center giant color="#0247bb">{Valor}</Text>
@@ -45,7 +41,7 @@ const GraphScreen = () => {
             <View style={{ marginTop: 32, marginBottom: 32, }}>
                 <LineChart
                     data={{
-                        labels: ["May", "June", "July", "August", "September", "October"],
+                        labels: dataGraph?.labels,
                         datasets: [
                             {
                                 data: [
