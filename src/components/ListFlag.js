@@ -8,13 +8,17 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import colors from '../constants/colors';
 
 const ListFlag = ({ data, opacity, scale }) => {
+    console.log('data ', data)
     const navigation = useNavigation();
     const colorScheme = useColorScheme();
-    const { title, description } = data;
+    const { title, description, id } = data;
 
     const handlePress = () => {
         navigation.navigate('Detail', {
-            data: { title: title }
+            data: {
+                id: id,
+                title: title
+            }
         })
     }
 

@@ -1,9 +1,13 @@
 import { StyleSheet, Text, View, useColorScheme } from 'react-native'
 import React from 'react'
 import colors from '../constants/colors';
+import { useRoute } from '@react-navigation/native';
 
 const SimpleList = () => {
     const colorScheme = useColorScheme();
+    const route = useRoute();
+    const { params } = route;
+    console.log('params ', params)
 
     return (
         <View style={styles.container}>

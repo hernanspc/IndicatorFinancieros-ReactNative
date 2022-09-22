@@ -40,6 +40,7 @@ export const useGetFlags = () => {
         const { data } = await axios.get(`${BASE_URL}recursos_api/${name}?apikey=${APY_KEY}&formato=json`)
         const response = {
             // ...data,
+            id: id,
             title: title,
             description: description,
             data: data[id][0]
