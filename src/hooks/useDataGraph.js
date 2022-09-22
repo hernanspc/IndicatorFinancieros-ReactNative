@@ -12,15 +12,44 @@ export const useDataGraph = () => {
     const { itemSelected } = useSelector(state => state.flags);
     const [dataGraph, setDataGraph] = useState([]);
     const getGraphInfo = async () => {
+        const typeOfBussines = ['dolar', 'euro', 'uf'];
+
         const flagFilter = flag.filter((flag, id) => flag.id === itemSelected.id);
 
         flagFilter.map(async (value) => {
-            const arrayPosts = await fetchDataGraph(value)
-            dispach(setArrGraph(arrayPosts));
 
+            const arrayPosts = await fetchDataGraph(value)
+
+            if (typeOfBussines.indexOf(value.name) === -1) { //esto va caer en 12 meses
+                console.log('es', value.name)
+            } else {
+                console.log('no es')
+            }
+
+            const addVerticalData = arrayPosts.filter((item) =>
+                item.day = item.Fecha.split('-', 3)[2]
+            )
+            const addHorizontalData = arrayPosts.filter((item) => {
+                return item.amount = item.Valor.replace(/\./g, '')
+            })
+            let arr = [];
+            addVerticalData.map((item) =>
+                arr.push(item.day)
+            )
+            let arrAmount = [];
+            addHorizontalData.map((item) =>
+                arrAmount.push(item.amount.replace(/,/g, '.'))
+            )
+
+            const response = {
+                labels: arr,
+                amount: arrAmount,
+            }
+            // console.log('response ', arrAmount)
+            dispach(setArrGraph(response));
             setDataGraph(arrayPosts)
-            return arrayPosts
         })
+
     }
 
     useEffect(() => {

@@ -1,5 +1,5 @@
 import { StyleSheet, Text as TextDefault, View, Dimensions } from 'react-native'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import Text from '../components/Text';
 import { useSelector } from 'react-redux';
@@ -21,10 +21,12 @@ const GraphScreen = () => {
     const { params } = route;
     const { title } = params;
     const { itemSelected, infoGraph } = useSelector(state => state.flags);
+    // const { labels } = infoGraph;
     const { Valor } = itemSelected?.data;
+    // console.log('itemSelected ', itemSelected)
+    const abc = useDataGraph();
 
-    const { dataGraph } = useDataGraph();
-    const { amount } = dataGraph
+
 
     useEffect(() => {
         navigation.setOptions({
@@ -33,7 +35,8 @@ const GraphScreen = () => {
             headerBackTitle: "Indicadores"
         });
     }, [navigation]);
-    console.log('infoGraph ', infoGraph.amount)
+
+    console.log('dataGraph ', infoGraph)
 
     return (
         <View>
@@ -41,36 +44,38 @@ const GraphScreen = () => {
             <Text center black color="#727479">Current Value</Text>
 
             <View style={{ marginTop: 32, marginBottom: 32, }}>
-                {dataGraph ?
-                    <LineChart
-                        data={{
-                            labels: dataGraph?.labels,
-                            datasets: [
-                                {
-                                    data: infoGraph.amount
-                                }
-                            ]
-                        }}
-                        width={Dimensions.get("window").width}
-                        height={250}
-                        decimalPlaces={0}
-                        yAxisLabel="$"
-                        // yAxisSuffix='k'
-                        chartConfig={{
-                            backgroundGradientFrom: "#1e1e1e",
-                            backgroundGradientTo: "#1e1e1e",
-                            // backgroundGradientFrom: "#B5B5B5",
-                            // backgroundGradientTo: "#B5B5B5",
-                            color: (opacity = 1) => `rgba(81,150,244, ${opacity})`,
-                            labelColor: () => `rgba(255,255,255, 0.2)`,
-                            // labelColor: () => `#1e1e1e`,
-                            strokeWidth: 3,
-                        }}
-                        // withVerticalLines={false}
-                        // withHorizontalLines={false}
-                        bezier
-                    /> : null
-                }
+
+                <LineChart
+                    data={{
+                        labels: infoGraph.labels,
+                        datasets: [
+                            {
+                                // data: arrAmount
+                                data: [885.15, 898.69, 910.27, 917.11, 922.6, 928.25, 938.82]
+                                // data: ["34013.91", "34108.71", "34122.28", "34135.85", "34149.42"]
+                            }
+                        ]
+                    }}
+                    width={Dimensions.get("window").width}
+                    height={250}
+                    decimalPlaces={0}
+                    yAxisLabel="$"
+                    // yAxisSuffix='k'
+                    chartConfig={{
+                        backgroundGradientFrom: "#1e1e1e",
+                        backgroundGradientTo: "#1e1e1e",
+                        // backgroundGradientFrom: "#B5B5B5",
+                        // backgroundGradientTo: "#B5B5B5",
+                        color: (opacity = 1) => `rgba(81,150,244, ${opacity})`,
+                        labelColor: () => `rgba(255,255,255, 0.2)`,
+                        // labelColor: () => `#1e1e1e`,
+                        strokeWidth: 3,
+                    }}
+                    // withVerticalLines={false}
+                    // withHorizontalLines={false}
+                    bezier
+                />
+
             </View>
         </View>
     )
