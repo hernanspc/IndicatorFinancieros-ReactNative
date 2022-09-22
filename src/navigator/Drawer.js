@@ -12,7 +12,7 @@ export default function MyDrawer() {
 
     return (
         <>
-            <StatusBar translucent barStyle="dark-content" backgroundColor="transparent" />
+            <StatusBar translucent barStyle="light-content" backgroundColor="transparent" />
             <Drawer.Navigator initialRouteName="Home"
                 screenOptions={{
                     headerShown: false,

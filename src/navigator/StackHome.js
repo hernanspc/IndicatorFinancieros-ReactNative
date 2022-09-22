@@ -18,7 +18,7 @@ export default function StackHome() {
                 headerMode: "screen",
                 headerTintColor: "#FFF",
                 headerStyle: {
-                    backgroundColor: "#00A8E0",
+                    backgroundColor: "#118c7e",
                 },
             }}
         >
