@@ -8,6 +8,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import colors from '../constants/colors';
 import { setItemSelected } from '../features/flags/flags';
 import { useDispatch } from 'react-redux';
+import { useGetFlags } from '../hooks/useGetFlags.js';
 
 const ListFlag = ({ data, opacity, scale }) => {
     const navigation = useNavigation();
@@ -15,9 +16,10 @@ const ListFlag = ({ data, opacity, scale }) => {
     const colorScheme = useColorScheme();
     const { title, description, id } = data;
 
-    const handlePress = (data) => {
+    const handlePress = async (data) => {
         navigation.navigate('Detail', { title: title })
         dispatch(setItemSelected(data));
+
     }
 
     return (

@@ -43,6 +43,7 @@ export const useGetFlags = () => {
             id: id,
             title: title,
             description: description,
+            name: name,
             data: data[id][0]
         }
         return response
@@ -71,4 +72,8 @@ export const useGetFlags = () => {
     return {
         simpleData
     }
+}
+
+export const getDetail = () => {
+    console.log('getDetail')
 }

@@ -3,11 +3,10 @@ import React from 'react'
 import colors from '../constants/colors';
 import { useRoute } from '@react-navigation/native';
 
-const SimpleList = () => {
+const SimpleList = ({ index }) => {
     const colorScheme = useColorScheme();
     const route = useRoute();
     const { params } = route;
-    // console.log('params ', params)
 
     return (
         <View style={styles.container}>
@@ -15,7 +14,7 @@ const SimpleList = () => {
                 <Text style={{ color: colors[colorScheme].tintIos }}>FECHA</Text>
             </View>
             <View style={styles.wrapperMonto}>
-                <Text>MONTO</Text>
+                <Text>{index}</Text>
             </View>
         </View>
     )
