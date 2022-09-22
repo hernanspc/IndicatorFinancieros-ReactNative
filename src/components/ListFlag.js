@@ -13,7 +13,11 @@ const ListFlag = ({ data, opacity, scale }) => {
     const { title } = data;
 
     const handlePress = () => {
-        navigation.navigate('Detail')
+        navigation.navigate('Detail', {
+            data: {
+                title: title
+            }
+        })
     }
 
     return (

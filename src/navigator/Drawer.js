@@ -4,6 +4,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import MapScreen from '../pages/MapScreen';
 import Home from '../pages/Home';
 import Detail from '../pages/Detail';
+import StackHome from './StackHome';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Drawer = createDrawerNavigator();
 export default function MyDrawer() {
@@ -11,33 +13,28 @@ export default function MyDrawer() {
     return (
         <>
             <StatusBar translucent barStyle="dark-content" backgroundColor="transparent" />
-            <Drawer.Navigator initialRouteName="Home">
+            <Drawer.Navigator initialRouteName="Home"
+                screenOptions={{
+                    headerShown: false,
+                }}
+            >
                 <Drawer.Screen
                     options={{
                         title: 'Inicio',
-                        headerTitle: "Indicadores",
-                        headerStyle: {
-                            // backgroundColor: '#202023', 
-                            // backgroundColor: '#f0e7db',
-                        },
                         headerTitleStyle: {
                             fontWeight: 'bold',
                         },
+                        drawerIcon: (config) => (
+                            <MaterialCommunityIcons
+                                name="bank-transfer"
+                                size={22}
+                                color="#0D85FB"
+                            />
+                        ),
+
                     }}
-                    name="Home" component={Home} />
-                <Drawer.Screen
-                    options={{
-                        title: 'Detalle',
-                        headerTitle: "Detalle de lo que presionaste",
-                        headerStyle: {
-                            // backgroundColor: '#202023', 
-                            // backgroundColor: '#f0e7db',
-                        },
-                        headerTitleStyle: {
-                            fontWeight: 'bold',
-                        },
-                    }}
-                    name="Detail" component={Detail} />
+                    name="StackHome" component={StackHome} />
+
                 <Drawer.Screen
                     options={{
                         title: 'Mapa',
