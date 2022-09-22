@@ -9,8 +9,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const ListFlag = ({ data, opacity, scale }) => {
     const navigation = useNavigation();
-    console.log('log: ', data)
-    const { title } = data;
+    const { title, description } = data;
+    console.log('description: ', description)
 
     const handlePress = () => {
         navigation.navigate('Detail', {
@@ -37,13 +37,10 @@ const ListFlag = ({ data, opacity, scale }) => {
 
                 <View style={{
                     display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-                    // alignItems: 'center',
                     width: "70%", height: "100%",
-                }}
-
-                >
+                }}>
                     <Text style={{ fontSize: 17 }}>{title}</Text>
-                    <Text style={{ paddingBottom: 10, fontSize: 14, color: "#0078fd" }}>description</Text>
+                    <Text style={{ paddingBottom: 10, fontSize: 14, color: "#0078fd" }}>{description}</Text>
                 </View>
                 <View style={{
                     display: 'flex',
@@ -53,12 +50,9 @@ const ListFlag = ({ data, opacity, scale }) => {
                     width: "30%",
                     height: "100%",
                 }}>
-                    {/* <FontAwesome5 name="info-circle" size={24} color="black" /> */}
                     <Ionicons name="information-circle-outline" size={30} color="#0078fd" />
-                    {/* <MaterialIcons name="keyboard-arrow-right" size={24} color="black" /> */}
                     <Entypo name="chevron-right" size={24} color="#cacacb" />
                 </View>
-
             </Animated.View>
         </TouchableOpacity>
     )
