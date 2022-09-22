@@ -1,13 +1,15 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, useColorScheme } from 'react-native'
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Animated from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import colors from '../constants/colors';
 
 const ListFlag = ({ data, opacity, scale }) => {
     const navigation = useNavigation();
+    const colorScheme = useColorScheme();
     const { title, description } = data;
 
     const handlePress = () => {
@@ -23,7 +25,7 @@ const ListFlag = ({ data, opacity, scale }) => {
             <Animated.View style={[styles.container, { opacity, transform: [{ scale }] }]}>
                 <View style={styles.wrapperText}>
                     <Text style={{ fontSize: 17 }}>{title}</Text>
-                    <Text style={{ paddingBottom: 10, fontSize: 14, color: "#0078fd" }}>{description}</Text>
+                    <Text style={{ paddingBottom: 10, fontSize: 14, color: colors[colorScheme].tintIos }}>{description}</Text>
                 </View>
                 <View style={styles.wrapperIcon}>
                     <Ionicons name="information-circle-outline" size={30} color="#0078fd" />

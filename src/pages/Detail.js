@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native';
+import SimpleList from '../components/SimpleList';
 
 const Detail = () => {
     const navigation = useNavigation();
@@ -19,7 +20,11 @@ const Detail = () => {
 
     return (
         <View>
-            <Text>asasa</Text>
+            <SimpleList />
+            <SimpleList />
+            <SimpleList />
+            <SimpleList />
+
         </View>
     )
 }
