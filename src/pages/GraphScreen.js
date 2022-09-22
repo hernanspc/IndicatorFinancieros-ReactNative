@@ -13,7 +13,7 @@ import {
 } from "react-native-chart-kit";
 import { useDataGraph } from '../hooks/useDataGraph';
 import { selectedMoths } from '../utils/functions';
-import { Skeleton, VStack, HStack, Center, NativeBaseProvider } from "native-base";
+import { Input, VStack, HStack, Center, NativeBaseProvider } from "native-base";
 import GraphSkeleton from './GraphSkeleton';
 
 const GraphScreen = () => {
@@ -28,7 +28,21 @@ const GraphScreen = () => {
     // console.log('itemSelected ', itemSelected)
     const abc = useDataGraph();
 
-
+    const obj = [
+        {
+            id: "1",
+            title: "Nombre",
+            amount: `${10}`,
+        }, {
+            id: "2",
+            title: "Fecha",
+            amount: `${20}`,
+        }, {
+            id: "3",
+            title: "Unidad de Medida",
+            amount: `${30}`,
+        }
+    ]
 
     useEffect(() => {
         navigation.setOptions({
@@ -42,8 +56,45 @@ const GraphScreen = () => {
 
     return (
         <View>
-            <Text heavy center giant color="#0247bb">{Valor}</Text>
+            <Text heavy center giant color="#0247bb">$ {Valor}</Text>
             <Text center black color="#727479">Current Value</Text>
+
+            <>
+                {obj.map((item, index) =>
+                    <View key={index} style={styles.container}>
+                        <View style={styles.title}>
+                            <Text large black style={{ color: "#000" }}>{item.title}</Text>
+                        </View>
+                        <View style={styles.element}>
+                            <Input isDisabled mx="3" placeholder="Input" value={item.amount} />
+                        </View>
+                    </View>
+                )}
+            </>
+            {/* <View style={styles.container}>
+                <View style={styles.title}>
+                    <Text large black style={{ color: "#000" }}>Nombre</Text>
+                </View>
+                <View style={styles.element}>
+                    <Input isDisabled mx="3" placeholder="Input" value='Euro' />
+                </View>
+            </View>
+            <View style={styles.container}>
+                <View style={styles.title}>
+                    <Text large black style={{ color: "#000" }}>Fecha</Text>
+                </View>
+                <View style={styles.element}>
+                    <Input isDisabled mx="3" placeholder="Input" value='Euro' />
+                </View>
+            </View>
+            <View style={styles.container}>
+                <View style={styles.title}>
+                    <Text large black style={{ color: "#000" }}>Unidad de Medida</Text>
+                </View>
+                <View style={styles.element}>
+                    <Input isDisabled mx="3" placeholder="Input" value='Euro' />
+                </View>
+            </View> */}
 
             <View style={{ marginTop: 32, marginBottom: 32, }}>
                 <LineChart
@@ -82,10 +133,31 @@ const GraphScreen = () => {
                 />
 
             </View>
-        </View>
+        </View >
     )
 }
 
 export default GraphScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        marginVertical: 5,
+        display: 'flex',
+        flexDirection: 'row',
+        height: 50,
+        marginHorizontal: 30,
+    },
+    title: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        width: "50%",
+    },
+    element: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        width: "50%",
+    }
+})

@@ -19,7 +19,6 @@ export const useDataGraph = () => {
         flagFilter.map(async (value) => {
 
             const arrayPosts = await fetchDataGraph(value)
-            console.log('arrayPosts ', arrayPosts)
             let arr = [];
 
             if (typeOfBussines.indexOf(value.name) === -1) { //esto va caer en 12 meses
@@ -48,7 +47,6 @@ export const useDataGraph = () => {
             const response = {
                 labels: arr,
                 amount: arrAmount,
-                // amount: [34013.91, 34108.71, 34122.28, 1000, 2]
             }
             dispach(setArrGraph(response));
             setDataGraph(arrayPosts)
