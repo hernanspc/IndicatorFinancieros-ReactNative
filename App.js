@@ -6,6 +6,7 @@ import { PermissionsProvider } from './src/context/PermissionsContext'
 import { Provider } from 'react-redux'
 import { store } from './src/app/store'
 import { RootNavigator } from './src/navigator/RootNavigator'
+import { NativeBaseProvider } from "native-base";
 
 const AppState = ({ children }) => {
   return (
@@ -19,11 +20,13 @@ const AppState = ({ children }) => {
 const App = () => {
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <AppState>
-          <RootNavigator />
-        </AppState>
-      </NavigationContainer>
+      <NativeBaseProvider>
+        <NavigationContainer>
+          <AppState>
+            <RootNavigator />
+          </AppState>
+        </NavigationContainer>
+      </NativeBaseProvider>
     </Provider>
   )
 }

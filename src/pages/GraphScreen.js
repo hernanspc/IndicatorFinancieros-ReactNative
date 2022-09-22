@@ -13,6 +13,8 @@ import {
 } from "react-native-chart-kit";
 import { useDataGraph } from '../hooks/useDataGraph';
 import { selectedMoths } from '../utils/functions';
+import { Skeleton, VStack, HStack, Center, NativeBaseProvider } from "native-base";
+import GraphSkeleton from './GraphSkeleton';
 
 const GraphScreen = () => {
     const navigation = useNavigation();
@@ -36,9 +38,8 @@ const GraphScreen = () => {
         });
     }, [navigation]);
 
-    // console.log('infoGraph.length ', infoGraph.length)
     if (infoGraph.length === 0) {
-        return <TextDefault>Cargando....</TextDefault>
+        return <GraphSkeleton />
     }
 
     return (
@@ -47,7 +48,6 @@ const GraphScreen = () => {
             <Text center black color="#727479">Current Value</Text>
 
             <View style={{ marginTop: 32, marginBottom: 32, }}>
-
                 <LineChart
                     data={{
                         labels: labels,
