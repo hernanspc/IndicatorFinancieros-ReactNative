@@ -21,9 +21,7 @@ const ListFlag = ({ data, opacity, scale }) => {
     return (
         <Animated.View style={[styles.container, { opacity, transform: [{ scale }] }]}>
             <View style={styles.wrapperText}  >
-                <TouchableOpacity style={{ paddingBottom: 15, }}
-                    onPress={handlePress}
-                >
+                <TouchableOpacity style={{ paddingBottom: 15, }} onPress={handlePress}>
                     <Text style={{ fontSize: 17 }}>{title}</Text>
                 </TouchableOpacity>
                 <Text style={{ paddingBottom: 10, fontSize: 14, color: colors[colorScheme].tintIos }}>{description}</Text>

@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         height: 50,
         borderBottomWidth: 1,
         borderBottomColor: "#CBCBCB",
-        marginHorizontal: 10,
+        marginHorizontal: 20,
     },
     wrapperDate: {
         display: 'flex',
