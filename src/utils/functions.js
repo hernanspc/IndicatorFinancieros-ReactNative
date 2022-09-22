@@ -57,7 +57,7 @@ export function selectedMoths(data) {
         '06': 'Jun',
         '07': 'Jul',
         '08': 'Ago',
-        '09': 'Sept',
+        '09': 'Sep',
         '10': 'Oct',
         '11': 'Nov',
         '12': 'Dic',
