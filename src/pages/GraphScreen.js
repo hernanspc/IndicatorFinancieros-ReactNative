@@ -25,22 +25,22 @@ const GraphScreen = () => {
     const { itemSelected, infoGraph } = useSelector(state => state.flags);
     const { labels, amount } = infoGraph
     const { Valor } = itemSelected?.data;
-    // console.log('itemSelected ', itemSelected)
-    const abc = useDataGraph();
+    const getData = useDataGraph();
+
 
     const obj = [
         {
             id: "1",
             title: "Nombre",
-            amount: `${10}`,
+            amount: `${itemSelected.title}`,
         }, {
             id: "2",
             title: "Fecha",
-            amount: `${20}`,
+            amount: `${itemSelected.data.Fecha}`,
         }, {
             id: "3",
             title: "Unidad de Medida",
-            amount: `${30}`,
+            amount: `${itemSelected.id}`,
         }
     ]
 
