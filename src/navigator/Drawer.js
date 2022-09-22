@@ -33,8 +33,8 @@ export default function MyDrawer() {
                         ),
 
                     }}
-                    name="StackHome" component={StackHome} />
-
+                    name="StackHome" component={StackHome}
+                />
                 <Drawer.Screen
                     options={{
                         title: 'Mapa',
