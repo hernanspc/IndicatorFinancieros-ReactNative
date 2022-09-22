@@ -57,7 +57,6 @@ export const useGetFlags = () => {
         let allRealPosts = []
         const allPosts = await Promise.all(flagPromises)
         allPosts.map((item) => {
-            // console.log('data ', item)
             allRealPosts.push(...[item])
         })
         setSimpleData(allRealPosts)
@@ -72,8 +71,4 @@ export const useGetFlags = () => {
     return {
         simpleData
     }
-}
-
-export const getDetail = () => {
-    console.log('getDetail')
 }
