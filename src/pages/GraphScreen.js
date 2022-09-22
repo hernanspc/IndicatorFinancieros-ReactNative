@@ -38,9 +38,7 @@ const GraphScreen = () => {
         });
     }, [navigation]);
 
-    if (infoGraph.length === 0) {
-        return <GraphSkeleton />
-    }
+    if (infoGraph.length === 0) return <GraphSkeleton />
 
     return (
         <View>
