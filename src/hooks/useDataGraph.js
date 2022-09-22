@@ -23,7 +23,6 @@ export const useDataGraph = () => {
             let arr = [];
 
             if (typeOfBussines.indexOf(value.name) === -1) { //esto va caer en 12 meses
-                console.log('es', value.name)
                 const addVerticalData = arrayPosts.filter((item) =>
                     item.mes = selectedMoths(item.Fecha.split('-', 2)[1])
                 )
@@ -35,7 +34,6 @@ export const useDataGraph = () => {
                 addVerticalData.map((item) =>
                     arr.push(item.day)
                 )
-                console.log('no es')
             }
 
             const addHorizontalData = arrayPosts.filter((item) => {
@@ -49,10 +47,9 @@ export const useDataGraph = () => {
 
             const response = {
                 labels: arr,
-                // amount: arrAmount,
-                amount: ["34013.91", "34108.71", "34122.28", "34135.85", "34149.42"]
+                amount: arrAmount,
+                // amount: [34013.91, 34108.71, 34122.28, 1000, 2]
             }
-            // console.log('response ', arrAmount)
             dispach(setArrGraph(response));
             setDataGraph(arrayPosts)
         })

@@ -36,7 +36,10 @@ const GraphScreen = () => {
         });
     }, [navigation]);
 
-
+    // console.log('infoGraph.length ', infoGraph.length)
+    if (infoGraph.length === 0) {
+        return <TextDefault>Cargando....</TextDefault>
+    }
 
     return (
         <View>
@@ -50,8 +53,8 @@ const GraphScreen = () => {
                         labels: labels,
                         datasets: [
                             {
-                                // data: amount
-                                data: [885.15, 898.69, 910.27, 917.11, 922.6, 928.25, 938.82],
+                                data: amount,
+                                // data: [885.15, 898.69, 910.27, 917.11, 922.6, 928.25, 938.82],
                                 // data: ["34013.91", "34108.71", "34122.28", "34135.85", "34149.42"]
                                 color: (opacity = 1) => `rgba(0, 0, 244, ${opacity})`, // optional
                                 strokeWidth: 4 // optional
