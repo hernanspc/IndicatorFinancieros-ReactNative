@@ -92,3 +92,17 @@ export const flag = [
         description: "Porcentaje",
         name: "utm"
     }]
+
+
+
+export const formatUSD = (value) => {
+    "worklet";
+    if (value === "") {
+        const formattedValue = `$${value.toLocaleString(
+            // const formattedValue = `$${latestCurrentPrice.value.toLocaleString(
+            "en-US",
+            { currency: "USD" }
+        )}`;
+        return formattedValue;
+    }
+}

@@ -24,6 +24,7 @@ const GraphScreen = () => {
     const { Valor } = itemSelected?.data;
 
     const { dataGraph } = useDataGraph();
+    const { amount } = dataGraph
 
     useEffect(() => {
         navigation.setOptions({
@@ -39,40 +40,43 @@ const GraphScreen = () => {
             <Text center black color="#727479">Current Value</Text>
 
             <View style={{ marginTop: 32, marginBottom: 32, }}>
-                <LineChart
-                    data={{
-                        labels: dataGraph?.labels,
-                        datasets: [
-                            {
-                                data: [
-                                    10,
-                                    Math.random() * 10,
-                                    Math.random() * 10,
-                                    Math.random() * 10,
-                                    Math.random() * 10,
-                                    Math.random() * 10,
-                                ]
-                            }
-                        ]
-                    }}
-                    width={Dimensions.get("window").width}
-                    height={250}
-                    yAxisLabel="$"
-                    yAxisSuffix='k'
-                    chartConfig={{
-                        backgroundGradientFrom: "#1e1e1e",
-                        backgroundGradientTo: "#1e1e1e",
-                        // backgroundGradientFrom: "#B5B5B5",
-                        // backgroundGradientTo: "#B5B5B5",
-                        color: (opacity = 1) => `rgba(81,150,244, ${opacity})`,
-                        labelColor: () => `rgba(255,255,255, 0.2)`,
-                        // labelColor: () => `#1e1e1e`,
-                        strokeWidth: 3,
-                    }}
-                    // withVerticalLines={false}
-                    // withHorizontalLines={false}
-                    bezier
-                />
+                {dataGraph ?
+
+
+                    <LineChart
+                        data={{
+                            labels: dataGraph?.labels,
+                            datasets: [
+                                {
+                                    data: [
+                                        Math.random() * 10,
+                                        Math.random() * 10,
+                                    ]
+                                    // data: amount
+                                    // data: ["34013.91", "34108.71", "34122.28", "34135.85", "34149.42"]
+                                }
+                            ]
+                        }}
+                        width={Dimensions.get("window").width}
+                        height={250}
+                        decimalPlaces={0}
+                        yAxisLabel="$"
+                        // yAxisSuffix='k'
+                        chartConfig={{
+                            backgroundGradientFrom: "#1e1e1e",
+                            backgroundGradientTo: "#1e1e1e",
+                            // backgroundGradientFrom: "#B5B5B5",
+                            // backgroundGradientTo: "#B5B5B5",
+                            color: (opacity = 1) => `rgba(81,150,244, ${opacity})`,
+                            labelColor: () => `rgba(255,255,255, 0.2)`,
+                            // labelColor: () => `#1e1e1e`,
+                            strokeWidth: 3,
+                        }}
+                        // withVerticalLines={false}
+                        // withHorizontalLines={false}
+                        bezier
+                    /> : null
+                }
             </View>
         </View>
     )
