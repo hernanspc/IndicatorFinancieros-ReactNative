@@ -20,7 +20,7 @@ const asyncFetchApi = async (path, opts, callBack) => {
         ...opts,
     })
         .then((res) => {
-            console.log("url ", url);
+            // console.log("url ", url);
             if (callBack) {
                 callBack(res.data);
             }
@@ -41,7 +41,7 @@ const fetchApiEffect = (path, opts, depts = []) => {
     });
 
     const url = path;
-    console.log("url ", url);
+    // console.log("url ", url);
     useEffect(() => {
         setResponse((prevResponse) => ({ ...prevResponse, loading: true }));
         axiosClientInstance({

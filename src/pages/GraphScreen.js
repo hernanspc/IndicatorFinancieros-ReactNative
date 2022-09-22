@@ -11,6 +11,7 @@ import {
     ContributionGraph,
     StackedBarChart
 } from "react-native-chart-kit";
+import { useDataGraph } from '../hooks/useDataGraph';
 
 const GraphScreen = () => {
     const navigation = useNavigation();
@@ -21,6 +22,8 @@ const GraphScreen = () => {
     const { itemSelected } = useSelector(state => state.flags);
     const { Valor } = itemSelected?.data;
 
+    const { getGraphInfo, infoData } = useDataGraph();
+
     useEffect(() => {
         navigation.setOptions({
             title: title,
@@ -29,10 +32,9 @@ const GraphScreen = () => {
         });
     }, [navigation]);
 
-    //TODO:  dólar, euro y la UF 10 ULTIMOS DIAS
-
-    //TODO:  IPC y la UTM 12 ULTIMOS MESES
-
+    useEffect(() => {
+        getGraphInfo("HERNAN")
+    }, [])
 
     return (
         <View>
