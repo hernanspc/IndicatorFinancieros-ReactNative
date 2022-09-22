@@ -2,17 +2,19 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import SimpleList from '../components/SimpleList';
+import { useSelector } from 'react-redux';
 
 const Detail = () => {
     const navigation = useNavigation();
-
     const route = useRoute();
     const { params } = route;
-    const { data } = params;
+    const { title } = params;
+
+    const { itemSelected } = useSelector(state => state.flags);
 
     useEffect(() => {
         navigation.setOptions({
-            title: data?.title,
+            title: title,
             // headerLargeTitle: true,
             headerBackTitle: "Indicadores"
         });
@@ -24,7 +26,6 @@ const Detail = () => {
             <SimpleList />
             <SimpleList />
             <SimpleList />
-
         </View>
     )
 }

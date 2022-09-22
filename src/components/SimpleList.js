@@ -7,7 +7,7 @@ const SimpleList = () => {
     const colorScheme = useColorScheme();
     const route = useRoute();
     const { params } = route;
-    console.log('params ', params)
+    // console.log('params ', params)
 
     return (
         <View style={styles.container}>

@@ -6,26 +6,24 @@ import Animated from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import colors from '../constants/colors';
+import { setItemSelected } from '../features/flags/flags';
+import { useDispatch } from 'react-redux';
 
 const ListFlag = ({ data, opacity, scale }) => {
-    console.log('data ', data)
     const navigation = useNavigation();
+    const dispatch = useDispatch();
     const colorScheme = useColorScheme();
     const { title, description, id } = data;
 
-    const handlePress = () => {
-        navigation.navigate('Detail', {
-            data: {
-                id: id,
-                title: title
-            }
-        })
+    const handlePress = (data) => {
+        navigation.navigate('Detail', { title: title })
+        dispatch(setItemSelected(data));
     }
 
     return (
         <Animated.View style={[styles.container, { opacity, transform: [{ scale }] }]}>
             <View style={styles.wrapperText}  >
-                <TouchableOpacity style={{ paddingBottom: 15, }} onPress={handlePress}>
+                <TouchableOpacity style={{ paddingBottom: 15, }} onPress={() => handlePress(data)}>
                     <Text style={{ fontSize: 17 }}>{title}</Text>
                 </TouchableOpacity>
                 <Text style={{ paddingBottom: 10, fontSize: 14, color: colors[colorScheme].tintIos }}>{description}</Text>
