@@ -21,7 +21,7 @@ const GraphScreen = () => {
     const { params } = route;
     const { title } = params;
     const { itemSelected, infoGraph } = useSelector(state => state.flags);
-    // const { labels } = infoGraph;
+    const { labels, amount } = infoGraph
     const { Valor } = itemSelected?.data;
     // console.log('itemSelected ', itemSelected)
     const abc = useDataGraph();
@@ -36,7 +36,7 @@ const GraphScreen = () => {
         });
     }, [navigation]);
 
-    console.log('dataGraph ', infoGraph)
+
 
     return (
         <View>
@@ -47,32 +47,36 @@ const GraphScreen = () => {
 
                 <LineChart
                     data={{
-                        labels: infoGraph.labels,
+                        labels: labels,
                         datasets: [
                             {
-                                // data: arrAmount
-                                data: [885.15, 898.69, 910.27, 917.11, 922.6, 928.25, 938.82]
+                                // data: amount
+                                data: [885.15, 898.69, 910.27, 917.11, 922.6, 928.25, 938.82],
                                 // data: ["34013.91", "34108.71", "34122.28", "34135.85", "34149.42"]
+                                color: (opacity = 1) => `rgba(0, 0, 244, ${opacity})`, // optional
+                                strokeWidth: 4 // optional
                             }
                         ]
                     }}
                     width={Dimensions.get("window").width}
-                    height={250}
+                    height={320}
+                    verticalLabelRotation={70}
+                    withInnerLines={true}
                     decimalPlaces={0}
-                    yAxisLabel="$"
+                    // yAxisLabel="$"
                     // yAxisSuffix='k'
                     chartConfig={{
-                        backgroundGradientFrom: "#1e1e1e",
-                        backgroundGradientTo: "#1e1e1e",
-                        // backgroundGradientFrom: "#B5B5B5",
-                        // backgroundGradientTo: "#B5B5B5",
-                        color: (opacity = 1) => `rgba(81,150,244, ${opacity})`,
-                        labelColor: () => `rgba(255,255,255, 0.2)`,
-                        // labelColor: () => `#1e1e1e`,
-                        strokeWidth: 3,
+                        backgroundGradientFrom: 0,
+                        backgroundGradientFromOpacity: 0,
+                        backgroundGradientTo: 0,
+                        backgroundGradientToOpacity: 0,
+                        color: (opacity = 1) => `rgba(20,2, 210, ${opacity})`,
+                        labelColor: (opacity = 1) => `rgba(0, 10, 0, ${opacity})`,
+                        backgroundColor: (opacity = 0) => `rgba(255, 255, 255, ${opacity})`,
+                        strokeWidth: 2, // optional, default 3                       
                     }}
-                    // withVerticalLines={false}
-                    // withHorizontalLines={false}
+                    // withVerticalLines={true}
+                    // withHorizontalLines={true}
                     bezier
                 />
 
