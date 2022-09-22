@@ -17,8 +17,9 @@ export const useDataGraph = () => {
 
         let allRealPosts = [];
         const getGraphPromises = flagFilter.map(async (value) => {
-            const { data } = await fetchDataGraph(value.name)
-            const arrayPosts = data[value?.id]
+            // const { data } = await fetchDataGraph(value.name)
+            // const arrayPosts = data[value?.id]
+            const arrayPosts = await fetchDataGraph(value.name)
             console.log('Real ', arrayPosts)
             // console.log('xxx', Object.values(arrayPosts))
 
