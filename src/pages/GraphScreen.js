@@ -12,6 +12,7 @@ import {
     StackedBarChart
 } from "react-native-chart-kit";
 import { useDataGraph } from '../hooks/useDataGraph';
+import { selectedMoths } from '../utils/functions';
 
 const GraphScreen = () => {
     const navigation = useNavigation();
@@ -33,7 +34,7 @@ const GraphScreen = () => {
     }, [navigation]);
 
     useEffect(() => {
-        getGraphInfo("HERNAN")
+        getGraphInfo()
     }, [])
 
     return (

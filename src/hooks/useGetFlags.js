@@ -3,37 +3,10 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { setDataFlag } from '../features/flags/flags';
 import { BASE_URL, APY_KEY } from "@env"
+import { flag } from '../utils/functions';
 
 export const useGetFlags = () => {
     const [simpleData, setSimpleData] = useState([]);
-
-    const flag = [
-        {
-            id: "Dolares",
-            title: "Dólar",
-            description: "Dólar",
-            name: "dolar"
-        }, {
-            id: "Euros",
-            title: "Euro",
-            description: "Pesos",
-            name: "euro"
-        }, {
-            id: "IPCs",
-            title: "Indice de precios al consumidor",
-            description: "Porcentaje",
-            name: "ipc"
-        }, {
-            id: "UFs",
-            title: "Unidad de Fomento",
-            description: "Porcentaje",
-            name: "uf"
-        }, {
-            id: "UTMs",
-            title: "Unidad Tributaria Mensual",
-            description: "Porcentaje",
-            name: "utm"
-        }]
 
     const dispatch = useDispatch();
     const getListStaticFlags = async ({ description, id, name, title }) => {
