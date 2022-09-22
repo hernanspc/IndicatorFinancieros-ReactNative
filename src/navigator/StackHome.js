@@ -6,6 +6,7 @@ import Home from '../pages/Home';
 import Detail from '../pages/Detail';
 import HeaderDrawer from "../components/HeaderDrawer";
 import { useNavigation } from "@react-navigation/native";
+import GraphScreen from "../pages/GraphScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,9 +30,14 @@ export default function StackHome() {
                     headerLeft: () => <HeaderDrawer onPress={() => navigation.openDrawer()} />,
                 }}
             />
+
             <Stack.Screen
                 name="Detail"
                 component={Detail} />
+            <Stack.Screen
+                name="GraphScreen"
+                component={GraphScreen} />
+
         </Stack.Navigator>
     );
 }

@@ -6,6 +6,7 @@ import Home from '../pages/Home';
 import Detail from '../pages/Detail';
 import StackHome from './StackHome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Feather from 'react-native-vector-icons/Feather';
 
 const Drawer = createDrawerNavigator();
 export default function MyDrawer() {
@@ -26,7 +27,7 @@ export default function MyDrawer() {
                         },
                         drawerIcon: (config) => (
                             <MaterialCommunityIcons
-                                name="bank-transfer"
+                                name="trending-up"
                                 size={22}
                                 color="#0D85FB"
                             />
@@ -42,6 +43,9 @@ export default function MyDrawer() {
                         headerTitleStyle: {
                             fontWeight: 'bold',
                         },
+                        drawerIcon: (config) => (
+                            <Feather name="map-pin" size={24} color="black" />
+                        )
                     }}
                     name="Mapa" component={MapScreen} />
             </Drawer.Navigator>

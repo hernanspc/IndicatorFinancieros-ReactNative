@@ -19,7 +19,10 @@ const ListFlag = ({ data, opacity, scale }) => {
     const handlePress = async (data) => {
         navigation.navigate('Detail', { title: title })
         dispatch(setItemSelected(data));
+    }
 
+    const handlePressInfo = () => {
+        navigation.navigate('GraphScreen')
     }
 
     return (
@@ -31,8 +34,10 @@ const ListFlag = ({ data, opacity, scale }) => {
                 <Text style={{ paddingBottom: 10, fontSize: 14, color: colors[colorScheme].tintIos }}>{description}</Text>
             </View>
             <View style={styles.wrapperIcon}>
-                <Ionicons name="information-circle-outline" size={30} color="#0078fd" />
-                <Entypo name="chevron-right" size={24} color="#cacacb" />
+                <TouchableOpacity style={{ padding: 15 }} onPress={handlePressInfo} >
+                    <Ionicons name="information-circle-outline" size={30} color={colors[colorScheme].tintIos} />
+                </TouchableOpacity>
+                <Entypo name="chevron-right" size={24} color={colors[colorScheme].textCredits} />
             </View>
         </Animated.View>
     )
@@ -57,6 +62,7 @@ const styles = StyleSheet.create({
         height: "100%",
     },
     wrapperIcon: {
+        // backgroundColor: "pink",
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-end',
