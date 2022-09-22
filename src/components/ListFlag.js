@@ -22,7 +22,8 @@ const ListFlag = ({ data, opacity, scale }) => {
     }
 
     const handlePressInfo = () => {
-        navigation.navigate('GraphScreen')
+        navigation.navigate('GraphScreen', { title: title })
+        dispatch(setItemSelected(data));
     }
 
     return (
