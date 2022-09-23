@@ -4,8 +4,6 @@
 
 ## Instalacion
 
-OnlyPostApp requiere [Node.js](https://nodejs.org/) v10+ para ejecutarse en local.
-
 Instale las dependencias y devDependencies e inicie el servidor.
 
 ```sh
