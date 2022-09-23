@@ -2,6 +2,27 @@
 
 
 
+## Instalacion
+
+OnlyPostApp requiere [Node.js](https://nodejs.org/) v10+ para ejecutarse en local.
+
+Instale las dependencias y devDependencies e inicie el servidor.
+
+```sh
+cd OnlyPostApp
+npm i / yarn install
+yarn android
+```
+
+For ios...
+
+```sh
+cd OnlyPostApp
+cd ios
+pod install
+return to OnlyPostApp
+yarn ios
+```
 
 
 ## ScreenShot 
