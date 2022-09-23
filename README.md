@@ -68,6 +68,12 @@ pod install
 ## ScreenShot 
 
 <p align="center">
+<img src="https://raw.githubusercontent.com/hernanspc/IndicatorBank-ReactNative/main/src/assets/screenshots/page0.png" width="300">
+<img src="https://github.com/hernanspc/IndicatorBank-ReactNative/blob/main/src/assets/screenshots/page0android.png?raw=true" width="300">
+
+</p>
+
+<p align="center">
 <img src="https://raw.githubusercontent.com/hernanspc/IndicatorBank-ReactNative/main/src/assets/screenshots/page2.png" width="400">
 </p>
 
@@ -81,8 +87,3 @@ pod install
 
 <img src="https://raw.githubusercontent.com/hernanspc/IndicatorBank-ReactNative/main/src/assets/screenshots/page4.png" width="400">
 
-### ANDROID 
-<img src="https://raw.githubusercontent.com/hernanspc/IndicatorBank-ReactNative/main/src/assets/screenshots/page0.png" width="300">
-
-### IOS 
-<img src="https://github.com/hernanspc/IndicatorBank-ReactNative/blob/main/src/assets/screenshots/page0android.png?raw=true" width="300">
