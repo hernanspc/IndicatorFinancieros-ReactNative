@@ -1,20 +1,16 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import IC_Drawer_IOS from "./../assets/icons/ic_drawer_header.svg";
-import React from 'react'
+import React, { PureComponent } from 'react'
 
-const HeaderDrawer = ({ onPress }) => {
-    return (
-        <TouchableOpacity onPress={onPress}
-            style={{
-                paddingVertical: 10, paddingRight: 20,
+const styles = { paddingVertical: 10, paddingRight: 20, }
+export default class HeaderDrawer extends PureComponent {
 
-            }}
-        >
-            <IC_Drawer_IOS />
-        </TouchableOpacity>
-    )
+    render() {
+        return (
+            <TouchableOpacity {...this.props} style={styles}
+            >
+                <IC_Drawer_IOS />
+            </TouchableOpacity>
+        )
+    }
 }
-
-export default HeaderDrawer
-
-const styles = StyleSheet.create({})
