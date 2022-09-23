@@ -1,5 +1,5 @@
 # Indicadores Financieros
-
+Este repositorio corresponde a la versión nativa para la app Indicadores Financieros, para las plataformas iOS y Android.
 
 Clonar repositorio:
 https://github.com/hernanspc/IndicatorBank-ReactNative.git
