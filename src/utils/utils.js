@@ -34,7 +34,6 @@ export const fetchDataGraph = async ({ name, id }) => {
     } else {
         console.log('10 dias antes...')
         const { data } = await axios.get(`${BASE_URL}recursos_api/${name}/periodo/${yearAct}/${monthAct}/dias_i/${lastTenDay}/${lastTenYear}/${lastTenMonth}/dias_f/22?apikey=${APY_KEY}&formato=json`)
-        // const { data } = await axios.get(`${BASE_URL}recursos_api/${name}/periodo/2022/09/dias_i/12/2022/09/dias_f/22?apikey=${APY_KEY}&formato=json`)
         console.log('data[id] ', data[id])
         return data[id]
     }
