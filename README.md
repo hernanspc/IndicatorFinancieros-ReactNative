@@ -62,6 +62,12 @@ pod install
 ## Descargá la App 📎
 
 <!-- ### Links de Descarga -->
+| Ambiente        | Android                                                                                                                                      | iOS                                                                                                                                 |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `Produccion`   | [LINK ANDROID](https://install.appcenter.ms/users/iphone1198-icloud.com/apps/appindicadorfinanciero/distribution_groups/todo%20el%20mundo)  | [LINK IOS]() |
+ 
+
+
 
 ## ScreenShot 
 
