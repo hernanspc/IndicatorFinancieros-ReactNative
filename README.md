@@ -1,6 +1,8 @@
 # Indicadores Financieros
 
 
+Clonar repositorio:
+https://github.com/hernanspc/IndicatorBank-ReactNative.git
 
 ## Instalacion
 
