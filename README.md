@@ -68,7 +68,7 @@ pod install
 ## ScreenShot 
 
 <p align="center">
-<img   width="400 src="https://raw.githubusercontent.com/hernanspc/IndicatorBank-ReactNative/main/src/assets/screenshots/page2.png">
+<img src="https://raw.githubusercontent.com/hernanspc/IndicatorBank-ReactNative/main/src/assets/screenshots/page2.png" width="400">
 </p>
 
 <img src="https://github.com/hernanspc/IndicatorBank-ReactNative/blob/main/src/assets/screenshots/page1.png?raw=true" width="400">
