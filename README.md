@@ -70,7 +70,7 @@ pod install
 - Pure Component
 
 <p align="center">
-<img src="https://github.com/hernanspc/IndicatorBank-ReactNative/blob/main/src/assets/screenshots/pure_c.png" width="300">
+<img src="https://github.com/hernanspc/IndicatorBank-ReactNative/blob/main/src/assets/screenshots/pure_c.png" width="600">
 </p>
 
 <p align="center">
