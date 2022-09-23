@@ -7,7 +7,7 @@
 Instale las dependencias y devDependencies e inicie el servidor.
 
 ```sh
-cd OnlyPostApp
+cd IndicadoresApp
 npm i / yarn install
 yarn android
 ```
@@ -15,10 +15,10 @@ yarn android
 For ios...
 
 ```sh
-cd OnlyPostApp
+cd IndicadoresApp
 cd ios
 pod install
-return to OnlyPostApp
+return to IndicadoresApp
 yarn ios
 ```
 
