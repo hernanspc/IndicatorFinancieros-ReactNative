@@ -61,9 +61,7 @@ pod install
     
 ## Descargá la App 📎
 
-> NOTA: Para utilizar la app de Integración o Certificación, se deberá estar conectado a la VPN desde el dispositivo movil.
-
-### Links de Descarga
+<!-- ### Links de Descarga -->
 
 ## ScreenShot 
 
