@@ -51,7 +51,7 @@ pod install
 -   **Local**
 
     ```bash
-    yarn ios:local
+    yarn ios
     ```
 -   Emulador específico
 
